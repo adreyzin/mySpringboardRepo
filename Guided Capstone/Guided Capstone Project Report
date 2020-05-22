@@ -1,1 +1,12 @@
- 
+Problem Identification
+Big Mountain Resort has recently installed an additional chair lift to help increase the distribution of visitors across the mountain. This additional chair increases their operating costs by $1,540,000 this season. Investors would like to keep the business profit margin under 9.2%.
+Data Collection, Organization, and Definitions
+I have started with the list of 330 resorts located in the same market area. The list had 27 columns of data. Most of the values were available (non-null), but I also had to take several steps to fill in the data where it was missing. 
+Exploratory Data Analysis
+I have dropped the Region column since it was practically identical to the State column. I also have dropped the Base Elevation column since there was a high correlation between this column and the Summit Elevation. 
+Pre-processing and Training Data Development
+I replaced the categorical State column with the “dummy” quantifiable data. I have scaled the data for processing and split the data 75/25 into the training and testing data sets.
+Modeling
+The initial model showed that there is a very high correlation between the Adult Weekend ticket price and the state values. Since the state is not something that can be changed and the great number of states overcomplicates the model, I have removed the states from the model. 
+After reviewing the model coefficients, I see that Summit Elevation moved to a higher spot. Since this is also difficult to change from a management perspective and highly correlated with base_elev and vertical_drop, I have removed the Summit Elevation from the model as well. The final model has 0.94 explained variance and 5.54 Mean Absolute Error.
+I ended up using a model with Summit Elevation included with Big Mountain data as the test data and the entire dataset as the train data. The final result shows that the predicted Adult Weekend price is $87.60 which is $6.60 more than the current Adult Weekend price of $81 that the Big Mountain is currently charging. 
